@@ -10,7 +10,7 @@ const ButtomForm = () => {
 
     return (
         <button type='submit'
-            className='border rounded border-gray-400 w-28 p-2 grid place-items-center'>
+            className='border rounded border-gray-600 w-28 p-2 grid place-items-center'>
               {pending ? (
                 <span  className='block animate-spin'>
                     <FaSpinner className='transform rotate-90'/>

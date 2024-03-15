@@ -1,5 +1,7 @@
 "use client";
 
+import toast from "react-hot-toast";
+
 import { useRef } from "react";
 import { createTodo } from "../todo.actions";
 import ButtomForm from "./buttom-form.todo";
@@ -13,11 +15,19 @@ const FormTodo = () => {
         const title = data.get("title") as string;
 
         if (!title || !title.trim()) {
-            return alert("title is required");
+            return toast.error("title es requerido");
         }
 
-        await createTodo(title)
+        const res = await createTodo(title);
+
+        if (res.error) {
+            return toast.error(res?.error);
+        }
+
+
         formRef.current?.reset();
+
+        toast.success("Todo creado");
     }
 
     return (
@@ -25,7 +35,7 @@ const FormTodo = () => {
             <input type="text"
                 name='title'
                 className='border rounded  border-gray-500 mr-2 p-2 w-full' />
-          <ButtomForm />
+            <ButtomForm />
         </form>
     )
 }
