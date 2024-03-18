@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { useRef } from "react";
 import { createTodo } from "../todo.actions";
 import ButtomForm from "./buttom-form.todo";
+import { TodoSchemaZod } from "../../schema/todo.zod.schema";
 
 const FormTodo = () => {
 
@@ -17,6 +18,8 @@ const FormTodo = () => {
         if (!title || !title.trim()) {
             return toast.error("title es requerido");
         }
+
+        TodoSchemaZod.parse({title});
 
         const res = await createTodo(title);
 

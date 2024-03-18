@@ -2,11 +2,11 @@
 
 import { revalidatePath } from 'next/cache';
 import { prisma } from '@/libs/prismadb';
-import { error } from 'console';
+
 
 
 export const createTodo = async (title: string) => {
-    "use server";
+    
 
     if (!title || !title.trim()) {
         return {
