@@ -31,8 +31,11 @@ const FormTodo = () => {
     }
 
     return (
-        <form ref={formRef} action={handleSubmit} className="flex">
-            <input type="text"
+        <form ref={formRef}
+            action={handleSubmit}
+            className="flex">
+            <input
+                type="text"
                 name='title'
                 className='border rounded  border-gray-500 mr-2 p-2 w-full' />
             <ButtomForm />
